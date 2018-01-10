@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+`page-header`
+Custom page header
+
+@demo demo/index.html
+-->
+
+<dom-module id="page-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      h1{
+        background-color: #4f3222;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        color: #fff;
+      }
+    </style>
+    <h1> {{myAppHeader}} </h1>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'page-header',
+
+      properties: {
+        myAppHeader: {
+          type: String,
+          value: 'My Application',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

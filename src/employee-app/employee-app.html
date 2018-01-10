@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../custom-elements/my-first-element.html">
+<link rel="import" href="../custom-elements/page-header.html">
+<link rel="import" href="../custom-elements/app-navbar.html">
+<link rel="import" href="../custom-elements/custom-table.html">
+
+<dom-module id="employee-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <page-header></page-header>
+    <app-navbar></app-navbar>
+    <my-first-element></my-first-element>
+    <custom-table></custom-table>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'employee-app',
+      properties: {
+        
+      },
+    });
+  </script>
+</dom-module>

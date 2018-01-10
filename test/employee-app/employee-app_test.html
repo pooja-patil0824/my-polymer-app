@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>employee-app test</title>
+
+    <script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../src/employee-app/employee-app.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <employee-app></employee-app>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('employee-app', function() {
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'employee-app');
+        });
+      });
+    </script>
+  </body>
+</html>

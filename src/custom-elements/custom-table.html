@@ -1,0 +1,95 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+
+
+<!--
+`custom-table`
+
+
+@demo demo/index.html
+-->
+
+<dom-module id="custom-table">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      h3{
+        padding-bottom: 15px;
+        border-bottom: 1px solid #fff;
+        margin: 0 0 15px 0;
+        text-align: center;
+      }
+      .main-container{
+        padding: 20px;
+        background-color: #f2e394;
+      }
+      ul.emp-list{
+        list-style-type: none;
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+      }
+      ul.emp-list li{
+        display: inline-block;
+        flex: 1;
+      }
+      ul.emp-list li.id{
+        display: inline-block;
+        padding-right: 10px;
+        flex: none;
+      }
+    </style>
+    <div class="main-container">
+      <h3>Employee List</h3>
+      <iron-list items="[[ajaxResponse]]">
+          <template>
+            <ul class="emp-list">
+              <li class="id">
+                [[item.id]].
+              </li>
+              <li class="name">
+                [[item.name]]
+              </li>
+              <li class="username">
+                [[item.username]]
+              </li>
+              <li class="email">
+                [[item.email]]
+              </li>
+              <li class="website">
+                [[item.website]]
+              </li>
+            </ul>
+          </template>
+      </iron-list>      
+    </div>
+
+  <iron-ajax
+     auto
+     url="https://jsonplaceholder.typicode.com/users"
+     handle-as="json"
+     on-response="handleResponse"
+     last-response="{{ajaxResponse}}"></iron-ajax>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'custom-table',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'custom-table',
+        },
+      },
+      handleResponse:function(){
+        console.log('this.ajaxResponse', this.ajaxResponse);
+      }
+
+    });
+  </script>
+</dom-module>

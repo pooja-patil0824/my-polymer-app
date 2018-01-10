@@ -1,0 +1,69 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+`page-header`
+Custom page header
+
+@demo demo/index.html
+-->
+
+<dom-module id="app-navbar">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      nav{
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: #8b6f47;
+      }
+      ul.app-nav{
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+      ul.app-nav li{
+        display: inline-block;
+        margin: 20px;
+      }
+      ul.app-nav li a{
+        display: inline-block;
+        padding: 20px 40px;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        background-color: #d4ac6e;
+        color: #000;
+      }
+    </style>
+    <nav>
+        <ul class="app-nav">
+            <template is="dom-repeat" items="{{navLinks}}">
+                <li><a href$="[[item.url]]">[[item.text]]</a></li>
+            </template>
+        </ul>
+    </nav>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'app-navbar',
+
+      properties: {
+        navLinks: {
+          type: Array,
+          value:[
+            {'text':'Home', 'url':'/home'},
+            {'text':'Services', 'url':'/services'},
+            {'text':'About', 'url':'/about'},
+            {'text':'News', 'url':'/news'},
+            {'text':'Contact', 'url':'/contact'},
+          ],
+        },
+      },
+
+    });
+  </script>
+</dom-module>

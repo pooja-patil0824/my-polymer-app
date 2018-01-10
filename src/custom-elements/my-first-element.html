@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+
+<!--
+`my-first-element`
+Polymer web component 
+
+@demo demo/index.html
+-->
+
+<dom-module id="my-first-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      h2{
+        background-color: #000;
+        padding: 10px;
+        color: #fff;
+      }
+    </style>
+    <h2>[[elementName]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'my-first-element',
+
+      properties: {
+        elementName: {
+          type: String,
+          value: 'This is my first Polymer element',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
